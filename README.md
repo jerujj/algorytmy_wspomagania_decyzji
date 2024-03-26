@@ -10,3 +10,9 @@ Konspekt projektu znajduje się w folderze *docs*.
 Przed każdorazowym uruchomieniem warto uruchomić instalowanie bibliotek na podstawie pliku *requirements.txt*, znajdującego się w folderze *resources*, aby zapewnić poprawne działanie kodu. Można zrealizować to za pomocą poniższej linijki:
 
 pip install -r .\resources\requirements.txt
+
+## Dataset
+
+Link do bazy danych Kaggle dla systemu rekomendacyjnego książek:
+
+https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset?resource=download
