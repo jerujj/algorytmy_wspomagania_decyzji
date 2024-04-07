@@ -1,8 +1,10 @@
 import unittest
 import sys
-sys.path.insert(1, "src")
+# sys.path.insert(1, "src")
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from general_data_exploration import *
+from src.general_data_exploration import *
 
 class TestCheckDataTypesAndMissingValues(unittest.TestCase):
     def setUp(self):

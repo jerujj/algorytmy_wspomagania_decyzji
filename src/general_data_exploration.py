@@ -29,7 +29,7 @@ def check_data_types_and_missing_values_to_excel(folder_path, output_folder='res
     
     output_path = os.path.join(output_folder, output_file)
 
-    with pd.ExcelWriter(output_path, engine='xlsxwriter') as writer:
+    with pd.ExcelWriter(output_path, engine='openpyxl') as writer:
         for file_name in os.listdir(folder_path):
             if file_name.endswith('.csv'):
                 file_path = os.path.join(folder_path, file_name)
