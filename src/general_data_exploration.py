@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 import os
 
 def check_data_types_and_missing_values_to_excel(folder_path, output_folder='resources/GeneralDataExploration', output_file='data_check_results.xlsx'):
@@ -62,3 +63,54 @@ def check_data_types_and_missing_values_to_excel(folder_path, output_folder='res
 
     print(f'Results saved to {output_path}')
 
+def plot_rating_distributions(ratings):
+    """
+    Creating distribution plot for users and books against number of ratings.
+
+    Using data from "Ratings.csv" file to create a plot with 2 subplots, that will present the distribution of ratings over books and users in the database. 
+
+    Parameters
+    ----------
+    ratings: `DataFrame`
+        DataFrame created from "Ratings.csv" file with proper dtype definitions.
+    """
+    book_counts = ratings['ISBN'].value_counts()
+
+    user_counts = ratings['User-ID'].value_counts()
+
+    plt.figure(figsize=(14, 7))
+
+    ax1 = plt.subplot(1, 2, 1)
+    book_patches = ax1.hist(book_counts, bins=200, edgecolor='black', alpha=0.7, log=True)
+    ax1.set_title('Distribution of Ratings per Book (Log Scale)')
+    ax1.set_xlabel('Number of Ratings')
+    ax1.set_ylabel('Number of Books (Log Scale)')
+
+    for patch in book_patches[2]:
+        bin_x = patch.get_x() + patch.get_width() / 2
+        bin_y = patch.get_height()
+        if bin_y > 0: 
+            ax1.annotate(f'{int(bin_y)}',
+                         xy=(bin_x, bin_y), 
+                         xytext=(0, 5),
+                         textcoords="offset points",
+                         ha='center', va='bottom')
+
+    ax2 = plt.subplot(1, 2, 2)
+    user_patches = ax2.hist(user_counts, bins=200, edgecolor='black', alpha=0.7, log=True)
+    ax2.set_title('Distribution of Ratings per User (Log Scale)')
+    ax2.set_xlabel('Number of Ratings')
+    ax2.set_ylabel('Number of Users (Log Scale)')
+
+    for patch in user_patches[2]:
+        bin_x = patch.get_x() + patch.get_width() / 2
+        bin_y = patch.get_height()
+        if bin_y > 0: 
+            ax2.annotate(f'{int(bin_y)}', 
+                         xy=(bin_x, bin_y), 
+                         xytext=(0, 5),
+                         textcoords="offset points",
+                         ha='center', va='bottom')
+
+    plt.tight_layout()
+    plt.show()
