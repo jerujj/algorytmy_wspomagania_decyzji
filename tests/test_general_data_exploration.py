@@ -1,10 +1,9 @@
 import unittest
 import sys
-# sys.path.insert(1, "src")
 import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-from src.general_data_exploration import *
+import pandas as pd
+sys.path.insert(1, "src")
+from general_data_exploration import *
 
 class TestCheckDataTypesAndMissingValues(unittest.TestCase):
     def setUp(self):
@@ -26,10 +25,30 @@ class TestCheckDataTypesAndMissingValues(unittest.TestCase):
     def tearDown(self):
         pass
 
+class TestRatingsNumberDistribution(unittest.TestCase):
+    def setUp(self):
+        self.resources_path = "resources/Pomiary/Zdrowe"
+
+    def test_load_predict_plot(self):
+        # Arrange
+        ratings = pd.read_csv(r'resources\book_recommendation_dataset\Ratings.csv', 
+                            usecols=['User-ID', 'ISBN', 'Book-Rating'],
+                            dtype={'User-ID': 'int', 'ISBN': 'str', 'Book-Rating': 'float'})
+
+        # Act
+        plot_rating_distributions(ratings)
+
+        # Assert
+        
+    
+    def tearDown(self):
+        pass
+
 if __name__ == '__main__':
     suite = unittest.TestSuite()
 
-    suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestCheckDataTypesAndMissingValues))
+    #suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestCheckDataTypesAndMissingValues))
+    suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestRatingsNumberDistribution))
 
     runner = unittest.TextTestRunner()
     runner.run(suite)
