@@ -1,6 +1,24 @@
 import pandas as pd
 
 def clean_csv_files(min_reviews):
+    """
+    Cleaning chosen csv files for minimum ratings number.
+
+    Inspecting provided csv files for empty columns and rows, removing unnecessary data and then removing Books and Users that have less ratings than the provided min_reviews.
+
+    Parameters
+    ----------
+    min_reviews: `int`
+        number of ratings that Book or User need to have to stay in the dataset for model training.
+
+    Returns
+    -------
+    books, ratings, users
+        DataFrames for books, ratings and users respectively, with the minimum ratings number rule applied
+    
+    books_clean, ratings_clean, users_clean
+        DataFrames for books, ratings and users respectively, but only with columns and rows cleaned, without deleting Users and Books with too low number of ratings
+    """
     books = pd.read_csv(r'resources\book_recommendation_dataset\Books.csv', 
                         usecols=['ISBN', 'Book-Title', 'Book-Author', 'Year-Of-Publication', 'Publisher', 'Image-URL-S', 'Image-URL-M', 'Image-URL-L'],
                         dtype={'ISBN': 'str', 'Book-Title': 'str', 'Book-Author': 'str', 
