@@ -1,0 +1,221 @@
+{% comment %} <!-- login.html -->
+<form method="post">
+    {% csrf_token %}
+    <label for="user_id">Podaj swój numer użytkownika:</label>
+    <input type="text" name="user_id" id="user_id" required>
+    <button type="submit">Zaloguj</button>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+</form> {% endcomment %}
+
+
+<html lang="en" data-bs-theme="auto">
+  <head><script src="/docs/5.3/assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>BookSi logowanie</title>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    {% comment %} <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico"> {% endcomment %}
+<meta name="theme-color" content="#712cf9">
+
+
+    <style>
+
+
+        body, html {
+            height: 100%;
+          }
+      
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+          }
+      
+        .form-signin {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px;
+            margin: auto;
+          }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 50%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="sign-in.css" rel="stylesheet">
+  </head>
+  <body class="d-flex align-items-center py-4 bg-body-tertiary">
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    
+<main class="form-signin w-100 m-auto">
+    <form method="post" action="{% url 'login' %}">
+    <svg fill="#000000" width="141px" height="141px" viewBox="-11.5 -11.5 73.00 73.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" stroke="#000000" stroke-width="0.0005" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="3"><path d="M7.8125 3C7.335938 3.089844 6.992188 3.511719 7 4L7 31L3 31C2.96875 31 2.9375 31 2.90625 31C2.390625 31.046875 1.996094 31.480469 2 32L2 36C2 36.550781 2.449219 37 3 37L6 37L6 44.5C6 45.867188 7.132813 47 8.5 47C9.867188 47 11 45.867188 11 44.5L11 37L39 37L39 44.5C39 45.867188 40.132813 47 41.5 47C42.867188 47 44 45.867188 44 44.5L44 37L47 37C47.550781 37 48 36.550781 48 36L48 32C48 31.449219 47.550781 31 47 31L43.875 31C43.902344 30.867188 43.902344 30.726563 43.875 30.59375L38.8125 9.1875C38.703125 8.671875 38.210938 8.328125 37.6875 8.40625C37.667969 8.414063 37.644531 8.425781 37.625 8.4375L32.75 9.59375C32.378906 9.679688 32.085938 9.972656 32 10.34375L32 10C32 9.449219 31.550781 9 31 9L25 9L25 4C25 3.449219 24.550781 3 24 3L16.0625 3C16.042969 3 16.019531 3 16 3L8 3C7.96875 3 7.9375 3 7.90625 3C7.875 3 7.84375 3 7.8125 3 Z M 9 5L15 5L15 31L9 31 Z M 17 5L23 5L23 9.90625C23 9.9375 23 9.96875 23 10L23 31L17 31 Z M 10.71875 7C10.167969 7.078125 9.78125 7.589844 9.859375 8.140625C9.9375 8.691406 10.449219 9.078125 11 9L13 9C13.359375 9.003906 13.695313 8.816406 13.878906 8.503906C14.058594 8.191406 14.058594 7.808594 13.878906 7.496094C13.695313 7.183594 13.359375 6.996094 13 7L11 7C10.96875 7 10.9375 7 10.90625 7C10.875 7 10.84375 7 10.8125 7C10.78125 7 10.75 7 10.71875 7 Z M 18.71875 7C18.167969 7.078125 17.78125 7.589844 17.859375 8.140625C17.9375 8.691406 18.449219 9.078125 19 9L21 9C21.359375 9.003906 21.695313 8.816406 21.878906 8.503906C22.058594 8.191406 22.058594 7.808594 21.878906 7.496094C21.695313 7.183594 21.359375 6.996094 21 7L19 7C18.96875 7 18.9375 7 18.90625 7C18.875 7 18.84375 7 18.8125 7C18.78125 7 18.75 7 18.71875 7 Z M 37.09375 10.59375L37.71875 13.28125C37.507813 12.902344 37.082031 12.703125 36.65625 12.78125C36.625 12.789063 36.59375 12.800781 36.5625 12.8125L35.59375 13.03125C35.1875 13.101563 34.867188 13.410156 34.78125 13.8125L34.1875 11.28125 Z M 32 10.78125L36.78125 31L32 31 Z M 25 11L30 11L30 31L25 31 Z M 26.71875 13C26.167969 13.078125 25.78125 13.589844 25.859375 14.140625C25.9375 14.691406 26.449219 15.078125 27 15L28 15C28.359375 15.003906 28.695313 14.816406 28.878906 14.503906C29.058594 14.191406 29.058594 13.808594 28.878906 13.496094C28.695313 13.183594 28.359375 12.996094 28 13L27 13C26.96875 13 26.9375 13 26.90625 13C26.875 13 26.84375 13 26.8125 13C26.78125 13 26.75 13 26.71875 13 Z M 37.84375 13.84375L40.875 26.6875C40.652344 26.445313 40.324219 26.332031 40 26.375C39.945313 26.382813 39.894531 26.390625 39.84375 26.40625C39.824219 26.414063 39.800781 26.425781 39.78125 26.4375L38.8125 26.65625C38.40625 26.726563 38.085938 27.035156 38 27.4375L35 14.6875C35.265625 14.984375 35.683594 15.09375 36.0625 14.96875L37.03125 14.75C37.476563 14.664063 37.808594 14.292969 37.84375 13.84375 Z M 10.71875 27C10.167969 27.078125 9.78125 27.589844 9.859375 28.140625C9.9375 28.691406 10.449219 29.078125 11 29L13 29C13.359375 29.003906 13.695313 28.816406 13.878906 28.503906C14.058594 28.191406 14.058594 27.808594 13.878906 27.496094C13.695313 27.183594 13.359375 26.996094 13 27L11 27C10.96875 27 10.9375 27 10.90625 27C10.875 27 10.84375 27 10.8125 27C10.78125 27 10.75 27 10.71875 27 Z M 18.71875 27C18.167969 27.078125 17.78125 27.589844 17.859375 28.140625C17.9375 28.691406 18.449219 29.078125 19 29L21 29C21.359375 29.003906 21.695313 28.816406 21.878906 28.503906C22.058594 28.191406 22.058594 27.808594 21.878906 27.496094C21.695313 27.183594 21.359375 26.996094 21 27L19 27C18.96875 27 18.9375 27 18.90625 27C18.875 27 18.84375 27 18.8125 27C18.78125 27 18.75 27 18.71875 27 Z M 26.71875 27C26.167969 27.078125 25.78125 27.589844 25.859375 28.140625C25.9375 28.691406 26.449219 29.078125 27 29L28 29C28.359375 29.003906 28.695313 28.816406 28.878906 28.503906C29.058594 28.191406 29.058594 27.808594 28.878906 27.496094C28.695313 27.183594 28.359375 26.996094 28 27L27 27C26.96875 27 26.9375 27 26.90625 27C26.875 27 26.84375 27 26.8125 27C26.78125 27 26.75 27 26.71875 27 Z M 41.09375 27.625L41.6875 30.0625L38.78125 30.75L38.21875 28.3125C38.484375 28.609375 38.902344 28.71875 39.28125 28.59375L40.25 28.375C40.65625 28.320313 40.992188 28.023438 41.09375 27.625 Z M 4 33L46 33L46 35L4 35 Z M 8 37L9 37L9 44.5C9 44.785156 8.785156 45 8.5 45C8.214844 45 8 44.785156 8 44.5 Z M 41 37L42 37L42 44.5C42 44.785156 41.785156 45 41.5 45C41.214844 45 41 44.785156 41 44.5Z"></path></g><g id="SVGRepo_iconCarrier"><path d="M7.8125 3C7.335938 3.089844 6.992188 3.511719 7 4L7 31L3 31C2.96875 31 2.9375 31 2.90625 31C2.390625 31.046875 1.996094 31.480469 2 32L2 36C2 36.550781 2.449219 37 3 37L6 37L6 44.5C6 45.867188 7.132813 47 8.5 47C9.867188 47 11 45.867188 11 44.5L11 37L39 37L39 44.5C39 45.867188 40.132813 47 41.5 47C42.867188 47 44 45.867188 44 44.5L44 37L47 37C47.550781 37 48 36.550781 48 36L48 32C48 31.449219 47.550781 31 47 31L43.875 31C43.902344 30.867188 43.902344 30.726563 43.875 30.59375L38.8125 9.1875C38.703125 8.671875 38.210938 8.328125 37.6875 8.40625C37.667969 8.414063 37.644531 8.425781 37.625 8.4375L32.75 9.59375C32.378906 9.679688 32.085938 9.972656 32 10.34375L32 10C32 9.449219 31.550781 9 31 9L25 9L25 4C25 3.449219 24.550781 3 24 3L16.0625 3C16.042969 3 16.019531 3 16 3L8 3C7.96875 3 7.9375 3 7.90625 3C7.875 3 7.84375 3 7.8125 3 Z M 9 5L15 5L15 31L9 31 Z M 17 5L23 5L23 9.90625C23 9.9375 23 9.96875 23 10L23 31L17 31 Z M 10.71875 7C10.167969 7.078125 9.78125 7.589844 9.859375 8.140625C9.9375 8.691406 10.449219 9.078125 11 9L13 9C13.359375 9.003906 13.695313 8.816406 13.878906 8.503906C14.058594 8.191406 14.058594 7.808594 13.878906 7.496094C13.695313 7.183594 13.359375 6.996094 13 7L11 7C10.96875 7 10.9375 7 10.90625 7C10.875 7 10.84375 7 10.8125 7C10.78125 7 10.75 7 10.71875 7 Z M 18.71875 7C18.167969 7.078125 17.78125 7.589844 17.859375 8.140625C17.9375 8.691406 18.449219 9.078125 19 9L21 9C21.359375 9.003906 21.695313 8.816406 21.878906 8.503906C22.058594 8.191406 22.058594 7.808594 21.878906 7.496094C21.695313 7.183594 21.359375 6.996094 21 7L19 7C18.96875 7 18.9375 7 18.90625 7C18.875 7 18.84375 7 18.8125 7C18.78125 7 18.75 7 18.71875 7 Z M 37.09375 10.59375L37.71875 13.28125C37.507813 12.902344 37.082031 12.703125 36.65625 12.78125C36.625 12.789063 36.59375 12.800781 36.5625 12.8125L35.59375 13.03125C35.1875 13.101563 34.867188 13.410156 34.78125 13.8125L34.1875 11.28125 Z M 32 10.78125L36.78125 31L32 31 Z M 25 11L30 11L30 31L25 31 Z M 26.71875 13C26.167969 13.078125 25.78125 13.589844 25.859375 14.140625C25.9375 14.691406 26.449219 15.078125 27 15L28 15C28.359375 15.003906 28.695313 14.816406 28.878906 14.503906C29.058594 14.191406 29.058594 13.808594 28.878906 13.496094C28.695313 13.183594 28.359375 12.996094 28 13L27 13C26.96875 13 26.9375 13 26.90625 13C26.875 13 26.84375 13 26.8125 13C26.78125 13 26.75 13 26.71875 13 Z M 37.84375 13.84375L40.875 26.6875C40.652344 26.445313 40.324219 26.332031 40 26.375C39.945313 26.382813 39.894531 26.390625 39.84375 26.40625C39.824219 26.414063 39.800781 26.425781 39.78125 26.4375L38.8125 26.65625C38.40625 26.726563 38.085938 27.035156 38 27.4375L35 14.6875C35.265625 14.984375 35.683594 15.09375 36.0625 14.96875L37.03125 14.75C37.476563 14.664063 37.808594 14.292969 37.84375 13.84375 Z M 10.71875 27C10.167969 27.078125 9.78125 27.589844 9.859375 28.140625C9.9375 28.691406 10.449219 29.078125 11 29L13 29C13.359375 29.003906 13.695313 28.816406 13.878906 28.503906C14.058594 28.191406 14.058594 27.808594 13.878906 27.496094C13.695313 27.183594 13.359375 26.996094 13 27L11 27C10.96875 27 10.9375 27 10.90625 27C10.875 27 10.84375 27 10.8125 27C10.78125 27 10.75 27 10.71875 27 Z M 18.71875 27C18.167969 27.078125 17.78125 27.589844 17.859375 28.140625C17.9375 28.691406 18.449219 29.078125 19 29L21 29C21.359375 29.003906 21.695313 28.816406 21.878906 28.503906C22.058594 28.191406 22.058594 27.808594 21.878906 27.496094C21.695313 27.183594 21.359375 26.996094 21 27L19 27C18.96875 27 18.9375 27 18.90625 27C18.875 27 18.84375 27 18.8125 27C18.78125 27 18.75 27 18.71875 27 Z M 26.71875 27C26.167969 27.078125 25.78125 27.589844 25.859375 28.140625C25.9375 28.691406 26.449219 29.078125 27 29L28 29C28.359375 29.003906 28.695313 28.816406 28.878906 28.503906C29.058594 28.191406 29.058594 27.808594 28.878906 27.496094C28.695313 27.183594 28.359375 26.996094 28 27L27 27C26.96875 27 26.9375 27 26.90625 27C26.875 27 26.84375 27 26.8125 27C26.78125 27 26.75 27 26.71875 27 Z M 41.09375 27.625L41.6875 30.0625L38.78125 30.75L38.21875 28.3125C38.484375 28.609375 38.902344 28.71875 39.28125 28.59375L40.25 28.375C40.65625 28.320313 40.992188 28.023438 41.09375 27.625 Z M 4 33L46 33L46 35L4 35 Z M 8 37L9 37L9 44.5C9 44.785156 8.785156 45 8.5 45C8.214844 45 8 44.785156 8 44.5 Z M 41 37L42 37L42 44.5C42 44.785156 41.785156 45 41.5 45C41.214844 45 41 44.785156 41 44.5Z"></path></g></svg><h1 class="h3 mb-3 fw-normal">Zaloguj się</h1>
+    {% csrf_token %}
+    <div class="form-floating">
+        <input type="text" class="form-control" id="username" name="username" placeholder="Nazwa użytkownika" required>
+        <label for="username">Nazwa użytkownika</label>
+    </div>
+
+    <div class="form-check text-start my-3">
+      <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Zapamiętaj mnie
+      </label>
+    </div>
+    {% if error %}
+      <div class="alert alert-danger" role="alert">
+        {{ error }}
+      </div>
+    {% endif %}
+
+    <button class="btn btn-primary w-100 py-2" type="submit">Zaloguj</button>
+    <p class="mt-5 mb-3 text-body-secondary">&copy; 2024</p>
+  </form>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+    </body>
+</html>
