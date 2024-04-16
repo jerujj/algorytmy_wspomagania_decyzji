@@ -27,6 +27,7 @@ class TestTrainTestSplit(unittest.TestCase):
         self.assertTrue(train_users.intersection(test_users), "Each user should be in both train and test sets if possible.")
 
         expected_test_set_size = int(np.ceil(0.2 * len(new_ratings)))
+        print(f"Expected test set size: {expected_test_set_size}")
         self.assertTrue(abs(len(test_set) - expected_test_set_size) <= 1, f"Test set size is not close to the expected ratio. ({abs(len(test_set) - expected_test_set_size)})")
     
     def tearDown(self):
