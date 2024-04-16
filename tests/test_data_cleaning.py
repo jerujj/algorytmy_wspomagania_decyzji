@@ -25,10 +25,6 @@ class TestCleaningData(unittest.TestCase):
         new_books, new_ratings, new_users, _, _, _ = clean_csv_files(10)
 
         # Assert
-        print("Minimum Books and Users counts")
-        print(f"Books: {ratings['ISBN'].value_counts().min()}")
-        print(f"Users: {ratings['User-ID'].value_counts().min()}")
-        print(" ")
         print("Checking the size of the old and new datasets")
         print(f"  Books length: old ->{len(books)},   new ->{len(new_books)} ({len(new_books)/len(books)*100:.2f}%)")
         print(f"Ratings length: old ->{len(ratings)}, new ->{len(new_ratings)} ({len(new_ratings)/len(ratings)*100:.2f}%)")
