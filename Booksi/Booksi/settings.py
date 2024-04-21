@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'glowne_okno.apps.GlowneOknoConfig',
     'logowanie.apps.LogowanieConfig',
+    'dodaj_ksiazke.apps.DodajKsiazkeConfig',
+    'mathfilters',
 ]
 
 MIDDLEWARE = [

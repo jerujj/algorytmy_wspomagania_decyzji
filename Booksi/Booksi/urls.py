@@ -21,6 +21,7 @@ urlpatterns = [
     path('glowne_okno/', include('glowne_okno.urls')),
     path('admin/', admin.site.urls),
     path('login/', include('logowanie.urls')),
+    path('dodaj_ksiazke/', include('dodaj_ksiazke.urls')),
     path('', include('logowanie.urls')),
     
     

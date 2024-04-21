@@ -21,6 +21,7 @@
 <meta name="theme-color" content="#712cf9">
 
 
+
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -98,6 +99,20 @@
       .bd-mode-toggle .dropdown-menu .active .bi {
         display: block !important;
       }
+
+      .card-img-top {
+        height: 200px; /* Fixed height for all images */
+        object-fit: cover; /* Cover the whole area, no stretching */
+        object-position: center; /* Center the image within the frame */
+      }
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .card-text {
+        overflow: hidden; /* Prevent text from overflowing */
+      }
     </style>
 
     
@@ -119,41 +134,6 @@
       </symbol>
     </svg>
 
-    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-              id="bd-theme"
-              type="button"
-              aria-expanded="false"
-              data-bs-toggle="dropdown"
-              aria-label="Toggle theme (auto)">
-        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-            Light
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-            Dark
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
-            Auto
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-      </ul>
-    </div>
-
     
 <header data-bs-theme="dark">
   <div class="collapse text-bg-dark" id="navbarHeader">
@@ -166,7 +146,7 @@
         <div class="col-sm-4 offset-md-1 py-4">
           <h4>Contact</h4>
           <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Zadanie na eportalu</a></li>
+            <li><a href="https://eportal.pwr.edu.pl/course/view.php?id=5366" class="text-white">Zadanie na eportalu</a></li>
             <li><a href="#" class="text-white">Email me</a></li>
           </ul>
         </div>
@@ -191,161 +171,151 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Witaj </h1>
-        <h1 class="fw-light">użytkowniku {{ user_id }}</h1>
-        <h1 class="fw-light">na naszej stronie!</h1>
+        <h1 class="fw-light">Witaj na naszej stronie!</h1>
         <p class="lead text-muted">Czy masz książkę, która szczególnie Ci się spodobała? Nie zachowuj tego dla siebie! Podziel się swoją opinią i <strong><a href="#" class="text-custom" style="color: #006400; text-decoration: none;">dodaj ją do naszej bazy</a></strong>. Kliknij poniżej, aby wprowadzić nowe tytuły, które warto polecić innym czytelnikom.</p><p>
-          <a href="#" class="btn btn-primary my-2">System rekomendacji</a>
-          <a href="#" class="btn btn-secondary my-2">Dodaj książkę</a>
+          <a href="#user-info" class="btn btn-primary">Informacje o użytkowniku</a>
+          <a href="/dodaj_ksiazke/" class="btn btn-secondary my-2">Dodaj książkę</a> 
+          <a href="#rekomendacje" class="btn btn-dark">System rekomendacji</a>
         </p>
       </div>
     </div>
   </section>
 
-  <div class="album py-5 bg-body-tertiary">
-    <div class="container">
+  <div class="b-example-divider"></div>
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="container px-4 py-5" id="user-info">
+    <h2 class="pb-2 border-bottom">Informacje o użytkowniku</h2>
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+      <div class="col d-flex flex-column align-items-start gap-2">
+        <h2 class="fw-bold text-body-emphasis">Witaj użytkowniku {{user_id}}</h2>
+        <p class="text-body-secondary">Oto spis informacji, które o tobie zebraliśmy, przerażające? Może troszeczkę.</p>
+        <p class="text-body-secondary">Na ich podstawie można później dokonać eksploracji danych, albo poleprzyć algorytm rekomendacji</p>
+      </div>
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
+      <div class="col">
+        <div class="row row-cols-1 row-cols-sm-2 g-4">
+          <div class="col d-flex flex-column gap-2">
+            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+              <svg class="bi" width="1em" height="1em">
+                <use xlink:href="#collection" />
+              </svg>
             </div>
+            <h4 class="fw-semibold mb-0 text-body-emphasis">Miasto</h4>
+            <p class="text-body-secondary">{{city}}</p>
           </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
+
+          <div class="col d-flex flex-column gap-2">
+            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+              <svg class="bi" width="1em" height="1em">
+                <use xlink:href="#gear-fill" />
+              </svg>
             </div>
+            <h4 class="fw-semibold mb-0 text-body-emphasis">Stan</h4>
+            <p class="text-body-secondary">{{state}}</p>
           </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
+
+          <div class="col d-flex flex-column gap-2">
+            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+              <svg class="bi" width="1em" height="1em">
+                <use xlink:href="#speedometer" />
+              </svg>
             </div>
+            <h4 class="fw-semibold mb-0 text-body-emphasis">Kraj</h4>
+            <p class="text-body-secondary">{{country}}</p>
+          </div>
+
+          <div class="col d-flex flex-column gap-2">
+            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+              <svg class="bi" width="1em" height="1em">
+                <use xlink:href="#table" />
+              </svg>
+            </div>
+            <h4 class="fw-semibold mb-0 text-body-emphasis">Wiek</h4>
+            <p class="text-body-secondary">{{age}}</p>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+
+  <div class="container px-4 py-5" id="user-info">
+    <h2 class="pb-2 border-bottom d-flex justify-content-between align-items-center">Książki które już przeczytał użytkownik {{ user_id }}
+      <div class="rounded-circle text-white d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; background-color: #007bff;">
+        {{ count }}
+    </div>
+    </h2>
+    
+    <div class="col">
+      <div class="my-3 p-3 bg-body rounded shadow-sm">
+          <!-- Przycisk do rozwijania listy -->
+          <h6 class="border-bottom pb-2 mb-0">
+              <a href="#ocenioneKsiazki" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="ocenioneKsiazki" class="text-dark text-decoration-none">
+                  Ocenione książki
+                  <svg width="24" height="24" fill="currentColor" class="bi bi-chevron-down ms-2">
+                      <use xlink:href="#chevron-down"></use>
+                  </svg>
+              </a>
+          </h6>
+          <!-- Rozwijana lista ocenionych książek -->
+          <div class="collapse" id="ocenioneKsiazki">
+              {% for elem in filtered_ratings %}
+              <div class="d-flex text-body-secondary pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false">
+                      <title>Placeholder</title>
+                      <rect width="100%" height="100%" fill="#007bff"/>
+                      <text x="50%" y="50%" fill="#ffffff" dy=".3em">{{ elem.Book_Rating }}</text>
+                  </svg>
+                  <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                      <div class="d-flex justify-content-between">
+                          <strong class="text-gray-dark">ISBN: {{ elem.ISBN }}</strong>
+                      </div>
+                      <span class="d-block">Tytuł: {{ elem.Book_Title }}</span>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+  </div>
+</div>
+
+
+  <div class="b-example-divider"></div>
+
+  <div class="album py-5 bg-body-tertiary"  id="rekomendacje">
+    {% load mathfilters %}
+    <div class="container">
+      <h2 class="pb-2 border-bottom">Polecane dla ciebie książki</h2>
+
+      {% if recommendations %}
+      <div class="container-fluid"> <!-- Utilize full width of the viewport -->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"> <!-- Ensure responsiveness and manage columns across different devices -->
+          {% for book in recommendations %}
+            <div class="col"> <!-- Each card occupies a column -->
+              <div class="card h-100 shadow-sm"> <!-- Equal height for cards within the same row -->
+                <img src="{{ book.image }}" class="card-img-top" alt="Cover Image of {{ book.title }}" style="height: 250px; object-fit: cover;">
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">{{ book.title }}</h5>
+                  <p class="card-text flex-grow-1">Additional text can be placed here.</p>
+                  <div class="mt-auto">
+                    <small class="text-muted">{{ book.distance|mul:100|floatformat:2 }}%</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- No need for manual row breaks; Bootstrap's grid system will wrap automatically -->
+          {% endfor %}
+        </div>
+      </div>
+      {% else %}
+        <p class="lead">Niestety masz jeszcze troszkę za mało ocenionych książek, aby móc zarekomendować Ci jakąś książkę</p>
+        <p class="lead">
+        <a href="#" class="btn btn-secondary my-2">Dodaj książkę</a> 
+        </p>
+      {% endif %}
+    </div>
+</div>
 
 </main>
 
@@ -354,8 +324,8 @@
     <p class="float-end mb-1">
       <a href="#">Back to top</a>
     </p>
-    <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="/docs/5.3/getting-started/introduction/">getting started guide</a>.</p>
+    <p class="mb-1">Autorzy</p>
+    <p class="mb-1">Martyna Żukowska i Jeremi Jarosz</p>
   </div>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
