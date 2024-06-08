@@ -15,4 +15,4 @@ pip install -r .\resources\requirements.txt
 
 Link do bazy danych Kaggle dla systemu rekomendacyjnego książek:
 
-https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset?resource=download
+https://www.kaggle.com/datasets/zygmunt/goodbooks-10k
