@@ -25,4 +25,4 @@ def clean_data(ratings, min_ratings_per_book, min_ratings_per_user):
 # Example usage
 ratings_df = pd.read_csv('resources/archive/ratings.csv')  # Load your ratings data
 cleaned_ratings = clean_data(ratings_df, 10, 10)  # Assuming 'x' is 5 for both books and users
-"""print(f"N of original ratings: {len(ratings_df)}, n of cleaned ratings: {len(cleaned_ratings)}")"""
+print(f"N of original ratings: {len(ratings_df)}, n of cleaned ratings: {len(cleaned_ratings)}")
